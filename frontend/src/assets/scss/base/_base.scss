@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    
+    // This makes 1rem = 10px
+    font-size: 62.5%;
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+    @include respond(phone) {
+        font-size: 80%;
+    }
+}
+
+body {
+    box-sizing: border-box;
+    font-family: bebas-neue, sans-serif;
+    background-color: #F2F4F4;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: rgba($color-primary, 0.3);
+}

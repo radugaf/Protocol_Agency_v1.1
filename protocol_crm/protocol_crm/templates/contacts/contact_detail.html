@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Contacts: {{ contact.contact_first_name }}{% endblock %}
+{% block content %}
+<h2>{{ contact.contact_first_name }}</h2>
+
+{% if contact.contact_description %}
+<p>{{ contact.contact_description }}</p>
+{% endif %}
+
+
+<hr />
+<h3>Submitted by
+    <a href="{% url 'users:detail' contact.creator.username %}">
+        {{ contact.creator.username }}
+    </a>
+</h3>
+{% if contact.creator.name %}
+<p>{{ contact.creator.name }}</p>
+<p>
+    <a class="btn btn-primary"
+    href="{% url 'contacts:update' contact.slug %}"
+    role="button">
+    Update
+    </a>
+    </p>
+{% endif %}
+
+
+{% endblock content %}
