@@ -49,7 +49,7 @@ DATABASES = {
     # expect a value in the following format:
     # DATABASE_URL=postgres://user:password@hostname_or_ip:port/database_name
     "default": env.db(
-        "DATABASE_URL", default="postgres:///protocol_crm"
+        "DATABASE_URL", default="postgres://postgres:Locomotiva101097@localhost:5432/protocol_crm"
     )
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
@@ -84,7 +84,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "protocol_crm.users.apps.UsersConfig",
     "protocol_crm.contacts.apps.ContactsConfig",
-    "protocol_crm.request_properties.apps.RequestPropertiesConfig"
+    "protocol_crm.request_properties.apps.RequestPropertiesConfig",
+    "protocol_crm.customers.apps.CustomersConfig",
 ]
 
 REST_API = ['rest_framework', 'rest_framework.authtoken', 'protocol_crm.agent', 'knox', ]
